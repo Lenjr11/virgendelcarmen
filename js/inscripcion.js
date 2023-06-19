@@ -15,13 +15,12 @@ function listar_inscripcion_serverside() {
             { "data": 4 },
             { "data": 5 },
             { "data": 6 },
-            { "data": 7 },
-            {"data": 0,
+            {"data": 7,
                 render: function(data, type, row) {
-                    if (data=='ACTIVO'){
+                    if (data==''){
                     return "<button class='eliminar btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>";
                 }else{
-                    return "<button class='eliminar btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>";
+                    return "<button class='mostrar btn btn-primary btn-sm'><i class='fa fa-question'></i></button>&nbsp;<button class='eliminar btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>";
                 }
                 }
             },
@@ -46,7 +45,7 @@ function Registrar_inscripcion() {
     let telefono = document.getElementById('telefono').value;
     let grado = document.getElementById('grado').value;
     let consulta = document.getElementById('consulta').value;
-    if (dni.length == 0 || nombres.length == 0 || apellidos.length == 0 || correo.length == 0 || telefono.length == 0 || grado.length == 0) {
+    if (dni.length == 0 || nombres.length == 0 || apellidos.length == 0 || telefono.length == 0 || grado.length == 0) {
         return Swal.fire("Error", "Los campos requeridos son obligatorios",
             "warning");
     }
@@ -136,4 +135,16 @@ $('#tabla_inscripcion_simple').on('click','.eliminar',function() {
             Eliminar_inscripcion(data[0]);
         }
       })
+})
+
+$('#tabla_inscripcion_simple').on('click','.mostrar',function() {
+    var data = tbl_inscripcion_simple.row($(this).parents('tr')).data();
+
+    if(tbl_inscripcion_simple.row(this).child.isShown()){
+        var data = tbl_inscripcion_simple.row(this).data();
+    }
+
+    $('.form-control').removeClass("is-invalid").removeClass("is-valid");
+    $("#modal_consulta_padre").modal('show');
+    document.getElementById('txt_consulta_mostrar').value=data[7];
 })

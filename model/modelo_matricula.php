@@ -51,10 +51,10 @@
 
         }
 
-        public function Registrar_Matricula($dni,$dniapoderado,$matricode,$grado,$situacion,$procedencia,$cmatricula,$cmensualidad,$descuento,$fecha,$matrictotal){
+        public function Registrar_Matricula($dni,$dniapoderado,$matricode,$grado,$situacion,$procedencia,$observacion,$cmatricula,$cmensualidad,$descuento,$fecha,$matrictotal){
             $c = conexionBD::conexionPDO();
 
-            $sql = "CALL SP_REGISTRAR_MATRICULA(?,?,?,?,?,?,?,?,?,?,?)";
+            $sql = "CALL SP_REGISTRAR_MATRICULA(?,?,?,?,?,?,?,?,?,?,?,?)";
             $query = $c->prepare($sql);
             $query->bindParam(1,$dni);
             $query->bindParam(2,$dniapoderado);
@@ -62,11 +62,12 @@
             $query->bindParam(4,$grado);
             $query->bindParam(5,$situacion);
             $query->bindParam(6,$procedencia);
-            $query->bindParam(7,$cmatricula);
-            $query->bindParam(8,$cmensualidad);
-            $query->bindParam(9,$descuento);
-            $query->bindParam(10,$fecha);
-            $query->bindParam(11,$matrictotal);
+            $query->bindParam(7,$observacion);
+            $query->bindParam(8,$cmatricula);
+            $query->bindParam(9,$cmensualidad);
+            $query->bindParam(10,$descuento);
+            $query->bindParam(11,$fecha);
+            $query->bindParam(12,$matrictotal);
             $resultado = $query->execute();
             if($row = $query->fetchColumn()){
                 return $row;

@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="carousel-item" style="min-height: 300px;">
-                    <img class="position-relative w-100" src="Assets/pagcole/img/secundaria.jpg"
+                    <img class="position-relative w-100" src="Assets/pagcole/img/secundari.jpg"
                         style="min-height: 300px; object-fit: cover;">
                     <div class="carousel-caption d-flex align-items-center justify-content-center">
                         <div class="p-5" style="width: 100%; max-width: 900px;">
@@ -66,7 +66,7 @@
             <div class="row pb-3">
                 <div class="blog-item position-relative overflow-hidden rounded">
                     <img class="img-fluid" src="Assets/pagcole/img/ubicacion.png" alt="">
-                    <a class="blog-overlay text-white" href="https://www.google.com/maps/place/IE+virgen+del+carme/@-6.7836264,-79.8643079,17z/data=!4m6!3m5!1s0x904cef0fc07e446d:0x586e51b9ce69d502!8m2!3d-6.7836957!4d-79.8644419!16s%2Fg%2F11dxdhd1j0">Ir a Google Maps</a>
+                    <a class="blog-overlay text-white"  target="_blank" href="https://www.google.com/maps/place/IE+virgen+del+carme/@-6.7836264,-79.8643079,17z/data=!4m6!3m5!1s0x904cef0fc07e446d:0x586e51b9ce69d502!8m2!3d-6.7836957!4d-79.8644419!16s%2Fg%2F11dxdhd1j0">Ir a Google Maps</a>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">LISTA DE USUARIOS</h1>
-    <button class="btn btn-danger btn-sm float-right" onclick="AbrirModalRegistroUsuario()"><i class="fas fa-plus"></i> Nuevo ingreso</button>
+    <button class="btn btn-danger btn-sm float-right" onclick="AbrirModalRegistroUsuario()"><i class="fas fa-plus"></i> Nuevo usuario</button>
 </div>
 <div class="card-body">
     <div class="row">

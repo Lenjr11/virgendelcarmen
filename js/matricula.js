@@ -60,6 +60,7 @@ function Registrar_Matricula() {
     let grado = document.getElementById('select_grado').value;
     let situacion = document.getElementById('txt_situacion_matricula').value;
     let procedencia = document.getElementById('txt_procedencia_matricula').value;
+    let observacion = document.getElementById('txt_registro_observacion').value;
     let cmatricula = document.getElementById('txt_costo_matricula').value;
     let cmensualidad = document.getElementById('txt_mensualidad_matricula').value;
     let descuento = document.getElementById('txt_descuento_matricula').value;
@@ -80,6 +81,7 @@ function Registrar_Matricula() {
           grado:grado,
           situacion:situacion,
           procedencia:procedencia,
+          observacion:observacion,
           cmatricula:cmatricula,
           cmensualidad:cmensualidad,
           descuento:descuento,
@@ -199,22 +201,44 @@ $('#tabla_matricula_simple').on('click','.info',function() {
     document.getElementById('txt_descuento_mostrar').value=data[11];
     document.getElementById('txt_fecha_mostrar').value=data[12];
     document.getElementById('txt_total_mostrar').value=data[14];
+    document.getElementById('txt_mostrar_observacion').value=data[16];
 })
 
-$('#tabla_matricula_simple').on('click','.editar',function() {
+$('#tabla_matricula_simple').on('click', '.editar', function() {
     var data = tbl_matricula_simple.row($(this).parents('tr')).data();
+    var alumnoId = data[0]; // Obtener el ID del alumno desde la fila seleccionada
+  
+    // Realizar una solicitud AJAX para obtener los datos del alumno
+    $.ajax({
+      url: '../controller/matricula/controlador_mostrar_historial.php', // Reemplaza 'ruta_del_procedimiento_almacenado' con la URL correcta para llamar al procedimiento almacenado
+      method: 'POST',
+      data: { id: alumnoId },
+      success: function(response) {
 
-    if(tbl_matricula_simple.row(this).child.isShown()){
-        var data = tbl_matricula_simple.row(this).data();
-    }
-
-    $('.form-control').removeClass("is-invalid").removeClass("is-valid");
-    $("#modal_historial_matricula").modal('show');
-    document.getElementById('nombre_alumno').value=data[2];
-    document.getElementById('nivel_alumno').value=data[6];
-    document.getElementById('nom_apoder').value=data[3];
-    document.getElementById('celular_apoder').value=data[14];
-})
+        var parsedResponse = JSON.parse(response);
+        // Crear la tabla con los datos del alumno dentro del modal
+        var tablaAlumno = '<table class="table table-bordered table-sm"><thead><tr><th>Monto</th><th>Descripción</th><th>Mes</th><th>Fecha</th></tr></thead><tbody>';
+        for (var i = 0; i < parsedResponse.length; i++) {
+          tablaAlumno += '<tr>';
+          tablaAlumno += '<td>' + 'S/'+ parsedResponse[i].pago_monto + '</td>';
+          tablaAlumno += '<td>' + parsedResponse[i].pago_descripcion + '</td>';
+          tablaAlumno += '<td>' + parsedResponse[i].pago_mes + '</td>';
+          tablaAlumno += '<td>' + parsedResponse[i].pago_fecha + '</td>';
+          tablaAlumno += '</tr>';
+        }
+        tablaAlumno += '</tbody></table>';
+  
+        // Insertar la tabla en el contenido del modal
+        $('#modal_historial_matricula .modal-body').html(tablaAlumno);
+  
+        // Mostrar el modal de edición
+        $("#modal_historial_matricula").modal('show');
+      },
+      error: function() {
+        // Manejar el error si la solicitud AJAX falla
+      }
+    });
+});
 
 function Modificar_Estatus(id,estado){
     $.ajax({

@@ -84,8 +84,32 @@
                     </div>
                     <div class="col-12">
                         <label for="">Fecha Registro</label>
-                        <input type="date" id="txt_registro_matricula" value="<?php echo date("Y-m-d");?>"
+                        <input type="date" id="txt_registro_matricula" value=""
                             class="form-control">
+                    </div>
+                    <script>
+                    // Obtener la fecha actual
+                    var fechaActual = new Date();
+
+                    // Formatear la fecha en el formato adecuado para el campo de entrada (YYYY-MM-DD)
+                    var mes = fechaActual.getMonth() + 1;
+                    var dia = fechaActual.getDate();
+                    var año = fechaActual.getFullYear();
+                    if (mes < 10) {
+                        mes = '0' + mes;
+                    }
+                    if (dia < 10) {
+                        dia = '0' + dia;
+                    }
+                    var fechaFormateada = año + '-' + mes + '-' + dia;
+
+                    // Establecer la fecha formateada como el valor predeterminado del campo de entrada
+                    document.getElementById('txt_registro_matricula').value = fechaFormateada;
+                    </script>
+                    <div class="col-12">
+                        <label for="">Observación:</label>
+                        <textarea class="form-control border-1 py-3 px-4" rows="3" id="txt_registro_observacion"
+                            maxlength="100"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -150,6 +174,11 @@
                         <div class="col-md-6 mb-3">
                             <label for="dni"><b>Deuda total del año escolar:</b></label>
                             <input class="form-control" type="text" id="txt_total_mostrar" disabled>
+                        </div>
+                        <div class="col-12">
+                            <label for="dni"><b>Observación:</b></label>
+                            <textarea class="form-control border-1 py-3 px-4" rows="2" id="txt_mostrar_observacion"
+                                maxlength="100" disabled></textarea>
                         </div>
                     </div>
                 </div>

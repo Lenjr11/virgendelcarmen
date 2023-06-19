@@ -72,6 +72,9 @@ include_once '../../model/modelo_conexion.php';
 $conexion = new conexionBD();
 $pdo = $conexion->conexionPDO();
 
+$fecha_inicio = $_POST['fecha_inicio'];
+$fecha_fin = $_POST['fecha_fin'];
+
 $sql = "select 
 matricula.matric_code,
 alumno.alumno_nombre,
@@ -82,7 +85,8 @@ pagos.pago_modalidad,
 pagos.pago_monto
 from pagos
 inner join matricula on pagos.id_matricula=matricula.id_matricula
-inner join alumno on matricula.id_alumno=alumno.id_alumno";
+inner join alumno on matricula.id_alumno=alumno.id_alumno
+WHERE pago_fecha BETWEEN '$fecha_inicio' AND '$fecha_fin'";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 

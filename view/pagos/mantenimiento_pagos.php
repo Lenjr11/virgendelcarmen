@@ -1,15 +1,44 @@
 <script src="../js/pago.js?rev=<?php echo time(); ?>"></script>
 <!-- Page Heading -->
+<div class="text-right mb-2">
+    <form id="reporteForm" method="POST" action="" target="_blank">
+
+        <label for="fecha_inicio">Desde:</label>
+        <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+
+        <label for="fecha_fin">Hasta:</label>
+        <input type="date" id="fecha_fin" name="fecha_fin" required>
+
+        <label for="formato">Formato:</label>
+        <select id="formato" name="formato">
+            <option value="">Seleccione formato...</option>
+            <option value="PDF">PDF</option>
+            <option value="EXCEL">Excel</option>
+        </select>&nbsp;
+
+        <button type="submit" class="btn btn-dark btn-sm">Generar Reporte</button>
+    </form>
+
+    <script>
+    // Obtener referencia al formulario y al elemento select
+    const reporteForm = document.getElementById('reporteForm');
+    const formatoSelect = document.getElementById('formato');
+
+    // Manejar evento de cambio del select
+    formatoSelect.addEventListener('change', function() {
+        const selectedOption = this.value;
+        if (selectedOption === 'PDF') {
+            reporteForm.action = 'fpdf/PruebaV.php';
+        } else if (selectedOption === 'EXCEL') {
+            reporteForm.action = 'fpdf/excel.php'
+        }
+    });
+    </script>
+</div>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">LISTA DE PAGOS</h1>
     <button class="btn btn-danger btn-sm float-right" onclick="AbrirModalRegistroPago()"><i class="fas fa-plus"></i>
         Nuevo Pago</button>
-</div>
-<div class="text-right mb-2">
-    <a href="fpdf/PruebaV.php" target="_blank" class="btn btn-dark"><i class='fa fa-file-pdf'></i> Reportes (PDF)</a>
-</div>
-<div class="text-right">
-    <a href="fpdf/excel.php" target="_blank" class="btn btn-success"><i class='fa fa-file-excel'></i> Reportes (EXCEL)</a>
 </div>
 
 <div class="card-body">
@@ -100,6 +129,34 @@
                         <label for="">Fecha de pago</label>
                         <input type="date" id="txt_fecha_pago" class="form-control">
                     </div>
+                    <div class="col-12" hidden>
+                        <label for="">Fecha de registro</label>
+                        <input type="date" id="txt_registro_fecha" value="" class="form-control">
+                        <script>
+                        // Obtener la fecha actual
+                        var fechaActual = new Date();
+
+                        // Formatear la fecha en el formato adecuado para el campo de entrada (YYYY-MM-DD)
+                        var mes = fechaActual.getMonth() + 1;
+                        var dia = fechaActual.getDate();
+                        var año = fechaActual.getFullYear();
+                        if (mes < 10) {
+                            mes = '0' + mes;
+                        }
+                        if (dia < 10) {
+                            dia = '0' + dia;
+                        }
+                        var fechaFormateada = año + '-' + mes + '-' + dia;
+
+                        // Establecer la fecha formateada como el valor predeterminado del campo de entrada
+                        document.getElementById('txt_registro_fecha').value = fechaFormateada;
+                        </script>
+                    </div>
+                    <div class="col-12">
+                        <label for="">Enviar boleta (WhastApp)</label>
+                        <input type="text" id="txt_enviar" class="form-control" minlength="9" maxlength="9"
+                            onkeypress="return soloNumeros(event)">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -145,7 +202,7 @@
 </div>
 
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
     $('.js-example-basic-single').select2();
     $('.select-search').select2();
 });

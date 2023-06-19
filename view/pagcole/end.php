@@ -14,7 +14,7 @@
             <div class="col-lg-5 col-md-12 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Síguenos en:</h5>
                 <div class="d-flex justify-content-start mt-4">
-                    <a class="btn btn-outline-light btn-square mr-2"
+                    <a class="btn btn-outline-light btn-square mr-2" target="_blank"
                         href="https://www.facebook.com/ievirgendelcarmen.urblasbrisas"><i
                             class="fab fa-facebook-f"></i></a>
                 </div>

@@ -11,6 +11,7 @@
     $grado = htmlspecialchars($_POST['grado'],ENT_QUOTES,'UTF-8');
     $situacion = htmlspecialchars($_POST['situacion'],ENT_QUOTES,'UTF-8');
     $procedencia = htmlspecialchars($_POST['procedencia'],ENT_QUOTES,'UTF-8');
+    $observacion = htmlspecialchars($_POST['observacion'],ENT_QUOTES,'UTF-8');
     $cmatricula = htmlspecialchars($_POST['cmatricula'],ENT_QUOTES,'UTF-8');
     $cmensualidad = htmlspecialchars($_POST['cmensualidad'],ENT_QUOTES,'UTF-8');
     $descuento = htmlspecialchars($_POST['descuento'],ENT_QUOTES,'UTF-8');
@@ -33,7 +34,7 @@
     if($contador>0){
         echo $error;
     }else{
-        $consulta = $MA->Registrar_Matricula($dni,$dniapoderado,$matricode,$grado,$situacion,$procedencia,$cmatricula,$cmensualidad,$descuento,$fecha,$matrictotal);
+        $consulta = $MA->Registrar_Matricula($dni,$dniapoderado,$matricode,$grado,$situacion,$procedencia,$observacion,$cmatricula,$cmensualidad,$descuento,$fecha,$matrictotal);
         echo $consulta;
     }
     

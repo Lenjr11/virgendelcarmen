@@ -20,9 +20,9 @@ function listar_pago_serverside() {
             {"data": 6,
                 render: function(data, type, row) {
                     if (data=='Efectivo'){
-                    return "<a class='btn btn-dark' href='../controller/boletas/invoice.php' target='_blank' role='button'><i class='fa fa-file-pdf'></i></a>";
+                    return "<a class='btn btn-info' href='../controller/boletas/invoice.php?id=" + row[0] + "' target='_blank' role='button'><i class='fa fa-download'></i></a>";
                 }else{
-                    return "<a class='btn btn-dark' href='../controller/boletas/invoice.php' role='button'><i class='fa fa-file-pdf'></i></a>";
+                    return "<a class='btn btn-info' href='../controller/boletas/invoice.php?id=" + row[0] + "' target='_blank' role='button'><i class='fa fa-download'></i></a>";
                 }
                 }
             },
@@ -78,6 +78,8 @@ function Registrar_Pago() {
     let fecha = document.getElementById('txt_fecha_pago').value;
     let modalidad = document.getElementById('txt_modalidad').value;
     let operacion = document.getElementById('txt_operacion').value;
+    let registro = document.getElementById('txt_registro_fecha').value;
+    let enviar = document.getElementById('txt_enviar').value;
     if (code.length == 0 || monto.length == 0 || descripcion.length == 0 || fecha.length == 0 || modalidad.length == 0 ) {
         return Swal.fire("Error", "Los campos requeridos son obligatorios",
             "warning");
@@ -93,6 +95,9 @@ function Registrar_Pago() {
           fecha:fecha,
           modalidad:modalidad,
           operacion:operacion,
+          registro:registro,
+          enviar:enviar
+
         }
     
     }).done(function(resp){ 
@@ -176,4 +181,19 @@ function Modificar_Pago(){
                 "error");
         }
     })
+}
+
+function generarBoleta(idPago) {
+    $.ajax({
+        url: '../controller/boletas/invoice.php',
+        method: 'POST',
+        data: { idPago: idPago },
+        success: function (response) {
+            // Abrir la boleta generada en una nueva ventana
+            window.open('../controller/boletas/' + response, '_blank');
+        },
+        error: function (xhr, status, error) {
+            console.error(xhr.responseText);
+        }
+    });
 }

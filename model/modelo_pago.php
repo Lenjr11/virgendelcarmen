@@ -20,10 +20,10 @@
         }
 
 
-        public function Registrar_Pago($code,$monto,$descripcion,$mes,$fecha,$modalidad,$operacion){
+        public function Registrar_Pago($code,$monto,$descripcion,$mes,$fecha,$modalidad,$operacion,$registro,$enviar,$boleta){
             $c = conexionBD::conexionPDO();
 
-            $sql = "CALL SP_REGISTRAR_PAGO(?,?,?,?,?,?,?)";
+            $sql = "CALL SP_REGISTRAR_PAGO(?,?,?,?,?,?,?,?,?,?)";
             $query = $c->prepare($sql);
             $query->bindParam(1,$code);
             $query->bindParam(2,$monto);
@@ -32,6 +32,9 @@
             $query->bindParam(5,$fecha);
             $query->bindParam(6,$modalidad);
             $query->bindParam(7,$operacion);
+            $query->bindParam(8,$registro);
+            $query->bindParam(9,$enviar);
+            $query->bindParam(10,$boleta);
             $resultado = $query->execute();
             if($row = $query->fetchColumn()){
                 return $row;
