@@ -1,4 +1,4 @@
-<?php include_once 'View/pagcole/navbar.php'; ?>
+<?php include_once 'view/pagcole/navbar.php'; ?>
 
 <!-- Header Start -->
 <div class="container-fluid page-header" >
@@ -84,4 +84,4 @@
     <!-- Courses End -->
 
 
-    <?php include_once 'View/pagcole/end.php'; ?>
+    <?php include_once 'view/pagcole/end.php'; ?>

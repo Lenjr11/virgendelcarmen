@@ -1,4 +1,4 @@
-<?php include_once 'View/pagcole/navbar.php'; ?>
+<?php include_once 'view/pagcole/navbar.php'; ?>
 
 <script src="js/inscripcion.js?rev=<?php echo time(); ?>"></script>
 <!-- Header Start -->
@@ -54,7 +54,7 @@
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <select class="select mb-3" id="grado" placeholder="Grado de interés"
+                            <select class="select mb-3 form-control" id="grado" placeholder="Grado de interés"
                                 style="width:100%">
                                 <option value="">Seleccione un grado de interés</option>
                                 <option value="Inicial">Inicial</option>
@@ -79,4 +79,4 @@
 </div>
 <!-- Contact End -->
 
-<?php include_once 'View/pagcole/end.php'; ?>
+<?php include_once 'view/pagcole/end.php'; ?>
