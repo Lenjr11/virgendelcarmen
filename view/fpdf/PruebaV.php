@@ -50,12 +50,12 @@ class PDF extends FPDF
    {
       $this->SetY(-15); // Posición: a 1,5 cm del final
       $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
-      $this->Cell(0, 10, utf8_decode('Página ') . $this->PageNo() . '/{nb}', 0, 0, 'C'); //pie de pagina(numero de pagina)
+      $this->Cell(0, 10, iconv('UTF-8', 'ISO-8859-1', 'Página') . $this->PageNo() . '/{nb}', 0, 0, 'C'); 
 
       $this->SetY(-15); // Posición: a 1,5 cm del final
       $this->SetFont('Arial', 'I', 8); //tipo fuente, cursiva, tamañoTexto
       $hoy = date('d/m/Y');
-      $this->Cell(355, 10, utf8_decode($hoy), 0, 0, 'C'); // pie de pagina(fecha de pagina)
+      $this->Cell(355, 10, iconv('UTF-8', 'ISO-8859-1', $hoy), 0, 0, 'C'); // pie de pagina(fecha de pagina)
    }
 }
 
