@@ -1,0 +1,36 @@
+version: '3'
+services:
+  app:
+    image: php-app
+    container_name: php-app
+    build:
+      context: .
+    ports:
+      - "4000:80"
+    networks:
+      - virgendelcarmen
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7-debian
+    container_name: php-db
+    restart: always
+    environment:
+        MYSQL_DATABASE: 'bd_vdc'
+        MYSQL_USER: test
+        MYSQL_PASSWORD: test
+        MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+        - ./mysql_data:/var/lib/mysql
+        - ./bd_vdc.sql:/docker-entrypoint-initdb.d/bd_vdc.sql
+          
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+    networks:
+        - virgendelcarmen
+
+networks:
+  virgendelcarmen:
+    external: true
