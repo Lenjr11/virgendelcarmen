@@ -2,9 +2,9 @@
 class conexionBD
 {
     public function conexionPDO(){
-        $host = 'localhost';
-        $usuario = 'root';
-        $contrasena = '';
+        $host = 'db';
+        $usuario = 'test';
+        $contrasena = 'test';
         $dbName = 'bd_vdc';
         try{
             $pdo = new PDO("mysql:host=$host;dbname=$dbName",$usuario,$contrasena);
