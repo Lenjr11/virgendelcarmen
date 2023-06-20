@@ -8,6 +8,8 @@ WORKDIR /var/www/html
 
 COPY . .
 
+RUN chown www-data:www-data -R /var/www/html/
+
 EXPOSE 80
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]
