@@ -115,6 +115,6 @@ $pdf->Cell(20, 10, utf8_decode($columna7), 1, 1, 'C', 0);
 
 ob_clean();
 
-$pdf->Output('Prueba.pdf', 'I');//nombreDescarga, Visor(I->visualizar - D->descargar)
+$pdf->Output("I","prueba.pdf",true);//nombreDescarga, Visor(I->visualizar - D->descargar)
 
 ob_end_flush();
