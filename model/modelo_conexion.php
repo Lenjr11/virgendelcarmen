@@ -6,6 +6,13 @@ class conexionBD
         $usuario = 'test';
         $contrasena = 'test';
         $dbName = 'bd_vdc';
+
+        // $host = 'localhost';
+        // $usuario = 'root';
+        // $contrasena = '';
+        // $dbName = 'bd_vdc';
+
+
         try{
             $pdo = new PDO("mysql:host=$host;dbname=$dbName",$usuario,$contrasena);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

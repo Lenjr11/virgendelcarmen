@@ -1,4 +1,7 @@
 <?php
+
+	ob_start();
+
 	# Incluyendo librerias necesarias #
 	require "./code128.php";
 
@@ -213,8 +216,11 @@
 	$pdf->SetTextColor(39,39,51);
 	$pdf->MultiCell(0,9,utf8_decode("*** Para consultar el comprobante ingresar a https://vcarmen.facturacionsunat.pe/buscar ***"),0,'C',false);
 
+	ob_clean();
 
 	# Nombre del archivo PDF #
 	$pdf->Output("I","Boleta_Pago.pdf",true);
+
+	ob_end_flush()
 
 ?>

@@ -60,6 +60,8 @@ class PDF extends FPDF
 
 /* CONSULTA INFORMACION DE LOS PAGOS */
 
+ob_start();
+
 $pdf = new PDF();
 $pdf->AddPage(); /* aqui entran dos para parametros (horientazion,tamaño)V->portrait H->landscape tamaño (A3.A4.A5.letter.legal) */
 $pdf->AliasNbPages(); //muestra la pagina / y total de paginas
@@ -111,4 +113,8 @@ $pdf->Cell(20, 10, utf8_decode($columna7), 1, 1, 'C', 0);
 }
 
 
+ob_clean();
+
 $pdf->Output('Prueba.pdf', 'I');//nombreDescarga, Visor(I->visualizar - D->descargar)
+
+ob_end_flush();
