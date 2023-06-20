@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 require('./fpdf.php');
 
 class PDF extends FPDF
@@ -60,7 +62,7 @@ class PDF extends FPDF
 
 /* CONSULTA INFORMACION DE LOS PAGOS */
 
-ob_start();
+
 
 $pdf = new PDF();
 $pdf->AddPage(); /* aqui entran dos para parametros (horientazion,tamaño)V->portrait H->landscape tamaño (A3.A4.A5.letter.legal) */

@@ -36,7 +36,6 @@
     $consulta = $MA->Registrar_Pago($code,$monto,$descripcion,$mes,$fecha,$modalidad,$operacion,$registro,$enviar,$boleta);
 
 
-    $fields = ['phone' => '951274739', 'message' => "ccccccccc"];
     $ch = curl_init();
     // curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1:3000/message/");
     curl_setopt($ch, CURLOPT_URL, "http://bot:3000/message/");
