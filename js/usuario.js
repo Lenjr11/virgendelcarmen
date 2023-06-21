@@ -147,9 +147,9 @@ function listar_usuario_serverside() {
             {"data": 6,
                 render: function(data, type, row) {
                     if (data=='ACTIVO'){
-                    return "<button class='editar btn btn-primary btn-sm'><i class='fa fa-edit'></i></button>&nbsp;<button class='btn btn-success btn-sm' disabled><i class='fa fa-check-circle'></i></button>&nbsp;<button class='desactivar btn btn-danger btn-sm'><i class='fa fa-ban'></i></button>&nbsp;<button class='contra btn btn-secondary btn-sm'><i class='fa fa-key'></i></button>";
+                    return "<button class='editar btn btn-primary btn-sm'><i class='fa fa-edit'></i></button>&nbsp;<button class='btn btn-success btn-sm' disabled><i class='fa fa-check-circle'></i></button>&nbsp;<button class='desactivar btn btn-danger btn-sm'><i class='fa fa-ban'></i></button>&nbsp;<button class='contra btn btn-secondary btn-sm'><i class='fa fa-key'></i></button>&nbsp;<button class='resetar btn btn-warning btn-sm'><i class='fa fa-unlock'></i></button>";
                 }else{
-                    return "<button class='editar btn btn-primary btn-sm'><i class='fa fa-edit'></i></button>&nbsp;<button class='activar btn btn-success btn-sm'><i class='fa fa-check-circle'></i></button>&nbsp;<button class='btn btn-danger btn-sm' disabled><i class='fa fa-ban'></i></button>&nbsp;<button class='contra btn btn-secondary btn-sm'><i class='fa fa-key'></i></button>";
+                    return "<button class='editar btn btn-primary btn-sm'><i class='fa fa-edit'></i></button>&nbsp;<button class='activar btn btn-success btn-sm'><i class='fa fa-check-circle'></i></button>&nbsp;<button class='btn btn-danger btn-sm' disabled><i class='fa fa-ban'></i></button>&nbsp;<button class='contra btn btn-secondary btn-sm'><i class='fa fa-key'></i></button>&nbsp;<button class='resetar btn btn-warning btn-sm'><i class='fa fa-unlock'></i></button>";
                 }
                 }
             },
@@ -488,6 +488,50 @@ function Modificar_Contra_Usuario(){
         } else {
             Swal.fire("Mensaje de Error", "No se pudo cambiar la contraseña",
                 "error");
+        }
+    })
+}
+
+$('#tabla_usuario_simple').on('click','.resetar',function() {
+    var data = tbl_usuario_simple.row($(this).parents('tr')).data();
+
+    if(tbl_usuario_simple.row(this).child.isShown()){
+        var data = tbl_usuario_simple.row(this).data();
+    }
+    Swal.fire({
+        title: 'Está seguro de resetar los intentos del usuario <b>'+data[1]+'</b>?',
+        text: "Una vez realizado esto, los intentos del usuario vuelven a 0!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, continuar!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            Modificar_Intentos(data[0],0);
+        }
+      })
+})
+
+function Modificar_Intentos(id,intento){
+    $.ajax({
+        url: '../controller/usuario/controlador_modificar_intentos.php',
+        type: 'POST',
+        data: {
+          id:id,
+          intento:intento
+        }
+    
+    }).done(function(resp){ 
+        if (resp > 0) {
+            Swal.fire("Mensaje de Error", "No se pudo resetear los intentos",
+                "error");
+
+        } else {
+            Swal.fire("Mensaje de Confirmación", "Se resetearon los intentos de usuario!",
+                    "success").then((value) => {
+                        tbl_usuario_simple.ajax.reload();
+                    });
         }
     })
 }
