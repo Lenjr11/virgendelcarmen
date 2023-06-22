@@ -70,7 +70,7 @@
                     </div>
                     <div class="col-md-2 mb-3">
                         <label for="dni">Fecha de nacimiento:</label>
-                        <input class="form-control" max="2005-12-30" min="1953-12-30" type="date" id="txt_fecha_madre">
+                        <input class="form-control" max="2005-12-30" min="1953-12-30" value="0001-01-01" type="date" id="txt_fecha_madre">
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="dni">Ciudad:</label>
@@ -120,7 +120,7 @@
                     </div>
                     <div class="col-md-2 mb-3">
                         <label for="dni">Fecha de nacimiento:</label>
-                        <input class="form-control" max="2005-12-30" min="1953-12-30" type="date" id="txt_fecha_padre">
+                        <input class="form-control" max="2005-12-30" min="1953-12-30" value="0001-01-01" type="date" id="txt_fecha_padre">
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="dni">Ciudad:</label>
@@ -173,7 +173,7 @@
                     </div>
                     <div class="col-md-2 mb-3">
                         <label for="dni">Fecha de nacimiento:</label>
-                        <input class="form-control"  max="2005-12-30" min="1953-12-30" type="date" id="txt_fecha_apoderado">
+                        <input class="form-control"  max="2005-12-30" min="1953-12-30" value="0001-01-01" type="date" id="txt_fecha_apoderado">
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="dni">Ciudad:</label>
