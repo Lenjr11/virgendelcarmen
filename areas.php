@@ -83,7 +83,7 @@
             </div>
             <div class="col-lg-6 progress-content text-left p-lg-5">
                 <div class="">
-                    <h3 class="title-w3pvt mb-5">Aulas</h3>
+                    <h3 class="title-w3pvt mb-5">Aulas amplias</h3>
                     <p class="">Contamos con amplias aulas, para el buen desarrollo de la clase y el aprendizaje de nuestros alumnos.</p>
                 </div>
             </div>

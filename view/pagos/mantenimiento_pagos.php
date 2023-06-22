@@ -153,7 +153,7 @@
                         </script>
                     </div>
                     <div class="col-12">
-                        <label for="">Enviar boleta (WhastApp)</label>
+                        <label for="">Celular para notificación (WhastApp)</label>
                         <input type="text" id="txt_enviar" class="form-control" minlength="9" maxlength="9"
                             onkeypress="return soloNumeros(event)">
                     </div>

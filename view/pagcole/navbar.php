@@ -65,7 +65,7 @@
                     <i class="fa fa-2x fa-phone text-primary mr-3"></i>
                     <div class="text-left">
                         <h6 class="font-weight-semi-bold mb-1">Teléfono</h6>
-                        <small>(+51) 943 960 616</small>
+                        <small>(+51) 955 537 473</small>
                     </div>
                 </div>
             </div>

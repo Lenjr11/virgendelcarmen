@@ -54,9 +54,6 @@ if (isset($_SESSION['S_IDUSUARIO'])) {
                             <button type="submit" class="btn btn-primary btn-block" onclick="Iniciar_Sesion()">
                                 Ingresar
                             </button>
-                            <div class="text-left">
-                                <a class="small" href="forgot-password.html">Olvidaste tu contraseña?</a>
-                            </div>
                     </div>
                 </div>
 

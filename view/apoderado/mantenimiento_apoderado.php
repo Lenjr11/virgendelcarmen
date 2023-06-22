@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col-md-2 mb-3">
                         <label for="dni">DNI/CE:</label>
-                        <input class="form-control" type="text" minlength="8" maxlength="8" id="txt_dni_madre" onkeypress="return soloNumeros(event)">
+                        <input class="form-control" type="text" minlength="8" maxlength="9" id="txt_dni_madre" onkeypress="return soloNumeros(event)">
                     </div>
                     <div class="col-md-2 mb-3">
                         <label for="dni">Nacionalidad:</label>
@@ -95,7 +95,7 @@
                 <div class="row">
                     <div class="col-md-2 mb-3">
                         <label for="dni">DNI/CE:</label>
-                        <input class="form-control" type="text" minlength="8" maxlength="8" id="txt_dni_padre" onkeypress="return soloNumeros(event)">
+                        <input class="form-control" type="text" minlength="8" maxlength="9" id="txt_dni_padre" onkeypress="return soloNumeros(event)">
                     </div>
                     <div class="col-md-2 mb-3">
                         <label for="dni">Nacionalidad:</label>
@@ -145,7 +145,7 @@
                 <div class="row">
                     <div class="col-md-2 mb-3">
                         <label for="dni">DNI/CE:</label>
-                        <input class="form-control" type="text" minlength="8" maxlength="8" id="txt_dni_apoderado" onkeypress="return soloNumeros(event)">
+                        <input class="form-control" type="text" minlength="8" maxlength="9" id="txt_dni_apoderado" onkeypress="return soloNumeros(event)">
                     </div>
                     <div class="col-md-2 mb-3">
                         <label for="dni">Nacionalidad:</label>
