@@ -21,12 +21,12 @@
 
     <script>
     // Obtener referencia al formulario y al elemento select
-    const reporteForm = document.getElementById('reporteForm');
-    const formatoSelect = document.getElementById('formato');
+    var reporteForm = document.getElementById('reporteForm');
+    var formatoSelect = document.getElementById('formato');
 
     // Manejar evento de cambio del select
     formatoSelect.addEventListener('change', function() {
-        const selectedOption = this.value;
+        var selectedOption = this.value;
         if (selectedOption === 'PDF') {
             reporteForm.action = 'fpdf/PruebaV.php';
         } else if (selectedOption === 'EXCEL') {

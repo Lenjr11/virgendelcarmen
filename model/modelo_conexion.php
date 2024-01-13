@@ -2,15 +2,12 @@
 class conexionBD
 {
     public function conexionPDO(){
-        $host = 'db';
-        $usuario = 'test';
-        $contrasena = 'test';
-        $dbName = 'bd_vdc';
 
-        // $host = 'localhost';
-        // $usuario = 'root';
-        // $contrasena = '';
-        // $dbName = 'bd_vdc';
+
+        $host = 'localhost';
+        $usuario = 'root';
+        $contrasena = '';
+        $dbName = 'bd_vdc';
 
 
         try{

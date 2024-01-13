@@ -6,8 +6,8 @@
                     <div class="col-md-6 mb-5">
                         <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contacto</h5>
                         <p><i class="fa fa-map-marker-alt mr-2"></i>Calle Alva Diaz N°380, URB Las Brisas</p>
-                        <p><i class="fa fa-phone-alt mr-2"></i><a class="text-white" href="tel:+51955537473">(+51) 955 537 473</a></p>
-                        <p><i class="fa fa-envelope mr-2"></i>cip69169mp@hotmail.com</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i><a class="text-white" href="tel:+51943960616">(+51) 943 960 616</a></p>
+                        <p><i class="fa fa-envelope mr-2"></i>admisionvirgendelcarmen@gmail.com</p>
                     </div>
                 </div>
             </div>

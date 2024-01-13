@@ -30,7 +30,7 @@
 
 <body>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <a href="https://api.whatsapp.com/send?phone=51946410313&text=Hola, quiero información sobre el colegio! :)."
+    <a href="https://api.whatsapp.com/send?phone=51943960616&text=Hola, quiero información sobre el colegio! :)."
         class="float" target="_blank">
         <i class="fa fa-whatsapp my-float"></i>
     </a>
@@ -38,7 +38,7 @@
     <div class="container-fluid d-none d-lg-block">
         <div class="row align-items-center py-4 px-xl-5">
             <div class="col-lg-3">
-                <a href="pagina.php" class="text-decoration-none">
+                <a href="index.php" class="text-decoration-none">
                     <img src="Assets/img/vdc2.jpg" width="120" height="110">
                 </a>
             </div>
@@ -56,16 +56,16 @@
                     <i class="fa fa-2x fa-envelope text-primary mr-3"></i>
                     <div class="text-left">
                         <h6 class="font-weight-semi-bold mb-1">Email</h6>
-                        <small>cip69169mp@hotmail.com</small>
+                        <small>admisionvirgendelcarmen@gmail.com</small>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 text-right">
+            <div class="col-lg-2 text-right">
                 <div class="d-inline-flex align-items-center">
                     <i class="fa fa-2x fa-phone text-primary mr-3"></i>
                     <div class="text-left">
                         <h6 class="font-weight-semi-bold mb-1">Teléfono</h6>
-                        <small>(+51) 955 537 473</small>
+                        <small>(+51) 943 960 616</small>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                             <a href="nosotros.php" class="nav-item text-white nav-link">Sobre nosotros</a>
                             <a href="actividades.php" class="nav-item text-white nav-link">Actividades</a>
                             <a href="areas.php" class="nav-item text-white nav-link">Áreas</a>
-                            <a href="inscripcion.php" class="nav-item text-white nav-link">Matrículas - 2024</a>
+                            <a href="inscripcion.php" class="nav-item text-white nav-link">Contactenos</a>
                         </div>
                     </div>
                 </nav>
